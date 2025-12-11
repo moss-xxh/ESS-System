@@ -272,10 +272,33 @@ const i18n = {
                     query: '查询',
                     reset: '重置',
                     createMenu: '新增菜单',
+                    editMenu: '编辑菜单',
                     expandAll: '展开全部',
                     collapseAll: '收起全部',
                     addSubMenu: '新增子菜单',
-                    confirmDelete: '确定要删除该菜单吗？如果有子菜单将无法删除。'
+                    confirmDelete: '确定要删除该菜单吗？如果有子菜单将无法删除。',
+                    // 表单字段
+                    basicInfo: '基本信息',
+                    menuNamePlaceholder: '请输入菜单名称',
+                    menuTypeLabel: '菜单类型',
+                    menuOption: '📄 菜单',
+                    directoryOption: '📁 目录',
+                    buttonOption: '🔘 按钮',
+                    typeDescDirectory: '目录：用于组织菜单结构，不可点击',
+                    typeDescMenu: '菜单：可点击跳转的菜单项',
+                    typeDescButton: '按钮：页面内的操作按钮',
+                    parentMenu: '上级菜单',
+                    noParent: '🏠 无 (顶级菜单)',
+                    pathLabel: '路径',
+                    pathPlaceholder: '/path/to/page',
+                    pathTip: '菜单类型需要配置路由路径',
+                    iconSettings: '图标设置',
+                    iconClassName: '图标类名',
+                    iconPlaceholder: 'bi-house',
+                    quickSelect: '快速选择',
+                    otherSettings: '其他设置',
+                    sortLabel: '排序',
+                    sortTip: '数字越小越靠前'
                 }
             };
 
@@ -516,10 +539,33 @@ const i18n = {
                     query: 'Query',
                     reset: 'Reset',
                     createMenu: 'Create Menu',
+                    editMenu: 'Edit Menu',
                     expandAll: 'Expand All',
                     collapseAll: 'Collapse All',
                     addSubMenu: 'Add Submenu',
-                    confirmDelete: 'Are you sure to delete this menu? Cannot delete if it has submenus.'
+                    confirmDelete: 'Are you sure to delete this menu? Cannot delete if it has submenus.',
+                    // Form Fields
+                    basicInfo: 'Basic Info',
+                    menuNamePlaceholder: 'Enter menu name',
+                    menuTypeLabel: 'Menu Type',
+                    menuOption: '📄 Menu',
+                    directoryOption: '📁 Directory',
+                    buttonOption: '🔘 Button',
+                    typeDescDirectory: 'Directory: For organizing menu structure, not clickable',
+                    typeDescMenu: 'Menu: Clickable menu item',
+                    typeDescButton: 'Button: Operation button within page',
+                    parentMenu: 'Parent Menu',
+                    noParent: '🏠 None (Top Level)',
+                    pathLabel: 'Path',
+                    pathPlaceholder: '/path/to/page',
+                    pathTip: 'Menu type requires route path configuration',
+                    iconSettings: 'Icon Settings',
+                    iconClassName: 'Icon Class',
+                    iconPlaceholder: 'bi-house',
+                    quickSelect: 'Quick Select',
+                    otherSettings: 'Other Settings',
+                    sortLabel: 'Sort Order',
+                    sortTip: 'Smaller number appears first'
                 }
             };
 

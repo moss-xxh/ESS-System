@@ -1782,24 +1782,24 @@ const Router = {
             <form id="menuForm" onsubmit="Router.saveMenu(event, ${isEdit ? menuData.id : 'null'})" style="padding: 24px;">
                 <!-- 基本信息 -->
                 <div style="margin-bottom: 32px;">
-                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">基本信息</h6>
+                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">${i18n.t('menuConfig.basicInfo')}</h6>
 
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            菜单名称 <span style="color: #FF3B30;">*</span>
+                            ${i18n.t('menuConfig.menuName')} <span style="color: #FF3B30;">*</span>
                         </label>
                         <input type="text"
                                class="form-control"
                                name="name"
                                value="${menuData.name}"
                                required
-                               placeholder="请输入菜单名称"
+                               placeholder="${i18n.t('menuConfig.menuNamePlaceholder')}"
                                style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            菜单类型 <span style="color: #FF3B30;">*</span>
+                            ${i18n.t('menuConfig.menuTypeLabel')} <span style="color: #FF3B30;">*</span>
                         </label>
                         <select class="form-select"
                                 name="type"
@@ -1807,28 +1807,28 @@ const Router = {
                                 onchange="Router.handleMenuTypeChange()"
                                 required
                                 style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
-                            <option value="menu" ${menuData.type === 'menu' ? 'selected' : ''}>📄 菜单</option>
-                            <option value="directory" ${menuData.type === 'directory' ? 'selected' : ''}>📁 目录</option>
-                            <option value="button" ${menuData.type === 'button' ? 'selected' : ''}>🔘 按钮</option>
+                            <option value="menu" ${menuData.type === 'menu' ? 'selected' : ''}>${i18n.t('menuConfig.menuOption')}</option>
+                            <option value="directory" ${menuData.type === 'directory' ? 'selected' : ''}>${i18n.t('menuConfig.directoryOption')}</option>
+                            <option value="button" ${menuData.type === 'button' ? 'selected' : ''}>${i18n.t('menuConfig.buttonOption')}</option>
                         </select>
                         <div style="margin-top: 8px; padding: 12px; background: rgba(0, 122, 255, 0.05); border-left: 3px solid #007AFF; border-radius: 6px;">
                             <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
-                                <div style="margin-bottom: 4px;"><strong>目录：</strong>用于组织菜单结构，不可点击</div>
-                                <div style="margin-bottom: 4px;"><strong>菜单：</strong>可点击跳转的菜单项</div>
-                                <div><strong>按钮：</strong>页面内的操作按钮</div>
+                                <div style="margin-bottom: 4px;">${i18n.t('menuConfig.typeDescDirectory')}</div>
+                                <div style="margin-bottom: 4px;">${i18n.t('menuConfig.typeDescMenu')}</div>
+                                <div>${i18n.t('menuConfig.typeDescButton')}</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            上级菜单
+                            ${i18n.t('menuConfig.parentMenu')}
                         </label>
                         <select class="form-select"
                                 name="parentId"
                                 ${parentId ? 'disabled' : ''}
                                 style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
-                            <option value="">🏠 无 (顶级菜单)</option>
+                            <option value="">${i18n.t('menuConfig.noParent')}</option>
                             ${buildParentOptions(allMenus.data.tree, isEdit ? menuData.id : null)}
                         </select>
                         ${parentId ? `<input type="hidden" name="parentId" value="${parentId}">` : ''}
@@ -1836,39 +1836,39 @@ const Router = {
 
                     <div class="form-group" id="pathField" style="margin-bottom: 20px;">
                         <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            路径 <span style="color: #FF3B30;" id="pathRequired">*</span>
+                            ${i18n.t('menuConfig.pathLabel')} <span style="color: #FF3B30;" id="pathRequired">*</span>
                         </label>
                         <input type="text"
                                class="form-control"
                                name="path"
                                value="${menuData.path}"
                                id="pathInput"
-                               placeholder="/path/to/page"
+                               placeholder="${i18n.t('menuConfig.pathPlaceholder')}"
                                style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; font-family: 'SF Mono', Monaco, 'Courier New', monospace; transition: all 0.2s;">
                         <div style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
-                            <i class="bi bi-info-circle me-1"></i>菜单类型需要配置路由路径
+                            <i class="bi bi-info-circle me-1"></i>${i18n.t('menuConfig.pathTip')}
                         </div>
                     </div>
                 </div>
 
                 <!-- 图标选择 -->
                 <div style="margin-bottom: 32px;">
-                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">图标设置</h6>
+                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">${i18n.t('menuConfig.iconSettings')}</h6>
 
                     <div class="form-group">
                         <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            图标类名
+                            ${i18n.t('menuConfig.iconClassName')}
                         </label>
                         <input type="text"
                                class="form-control"
                                name="icon"
                                id="iconInput"
                                value="${menuData.icon}"
-                               placeholder="bi-house"
+                               placeholder="${i18n.t('menuConfig.iconPlaceholder')}"
                                style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; font-family: 'SF Mono', Monaco, 'Courier New', monospace; transition: all 0.2s; margin-bottom: 12px;">
 
                         <div style="font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px;">
-                            <i class="bi bi-palette me-1"></i>快速选择
+                            <i class="bi bi-palette me-1"></i>${i18n.t('menuConfig.quickSelect')}
                         </div>
                         <div style="background: #fafafa; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 10px; padding: 16px; max-height: 240px; overflow-y: auto;">
                             <div class="row g-2">
@@ -1890,13 +1890,13 @@ const Router = {
 
                 <!-- 其他设置 -->
                 <div style="margin-bottom: 20px;">
-                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">其他设置</h6>
+                    <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">${i18n.t('menuConfig.otherSettings')}</h6>
 
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                                    排序 <span style="color: #FF3B30;">*</span>
+                                    ${i18n.t('menuConfig.sortLabel')} <span style="color: #FF3B30;">*</span>
                                 </label>
                                 <input type="number"
                                        class="form-control"
@@ -1906,17 +1906,17 @@ const Router = {
                                        required
                                        style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
                                 <div style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
-                                    <i class="bi bi-arrow-down-up me-1"></i>数字越小越靠前
+                                    <i class="bi bi-arrow-down-up me-1"></i>${i18n.t('menuConfig.sortTip')}
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                                    状态
+                                    ${i18n.t('menuConfig.status')}
                                 </label>
                                 <div style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: rgba(0, 0, 0, 0.02); border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.06);">
-                                    <span style="font-size: 14px; color: ${menuData.status === 'active' ? '#34C759' : '#8E8E93'}; flex: 1;" id="statusLabel">${menuData.status === 'active' ? '已启用' : '已禁用'}</span>
+                                    <span style="font-size: 14px; color: ${menuData.status === 'active' ? '#34C759' : '#8E8E93'}; flex: 1;" id="statusLabel">${menuData.status === 'active' ? i18n.t('menuConfig.statusActive') : i18n.t('menuConfig.statusInactive')}</span>
                                     <div class="form-check form-switch" style="margin: 0; padding: 0;">
                                         <input class="form-check-input"
                                                type="checkbox"
@@ -1937,14 +1937,14 @@ const Router = {
 
         const footer = `
             <button type="button" class="btn" onclick="Router.closeDrawer()" style="border-radius: 10px; padding: 10px 20px; background: rgba(0, 0, 0, 0.04); border: none; color: var(--text-primary);">
-                <i class="bi bi-x-lg me-1"></i>取消
+                <i class="bi bi-x-lg me-1"></i>${i18n.t('common.cancel')}
             </button>
             <button type="button" class="btn btn-edit-primary" onclick="document.getElementById('menuForm').requestSubmit()" style="border-radius: 10px; padding: 10px 20px;">
-                <i class="bi bi-check-lg me-1"></i>保存
+                <i class="bi bi-check-lg me-1"></i>${i18n.t('common.save')}
             </button>
         `;
 
-        this.openDrawer(isEdit ? '编辑菜单' : '新增菜单', content, footer);
+        this.openDrawer(isEdit ? i18n.t('menuConfig.editMenu') : i18n.t('menuConfig.createMenu'), content, footer);
 
         // 初始化表单状态
         setTimeout(() => {
@@ -1997,11 +1997,11 @@ const Router = {
         const statusValue = document.getElementById('statusValue');
 
         if (statusSwitch.checked) {
-            statusLabel.textContent = '已启用';
+            statusLabel.textContent = i18n.t('menuConfig.statusActive');
             statusLabel.style.color = '#34C759';
             statusValue.value = 'active';
         } else {
-            statusLabel.textContent = '已禁用';
+            statusLabel.textContent = i18n.t('menuConfig.statusInactive');
             statusLabel.style.color = '#8E8E93';
             statusValue.value = 'inactive';
         }
