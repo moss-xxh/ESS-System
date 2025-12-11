@@ -1,0 +1,217 @@
+/* ============================================
+   菜单树形结构样式 - 苹果风格
+   ============================================ */
+
+/* 菜单树容器 */
+.menu-tree {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 菜单项 */
+.menu-tree-item {
+    margin-bottom: 4px;
+}
+
+/* 菜单项内容 */
+.menu-tree-node {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-tree-node:hover {
+    background: rgba(0, 122, 255, 0.05);
+}
+
+/* 展开/收起按钮 */
+.tree-toggle {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: #86868B;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.tree-toggle i {
+    font-size: 12px;
+}
+
+/* 展开状态 */
+.tree-toggle.expanded {
+    transform: rotate(90deg);
+}
+
+/* 无子节点的占位 */
+.tree-toggle-placeholder {
+    width: 20px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* 复选框样式 */
+.menu-tree-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    border: 1.5px solid #C7C7CC;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-tree-checkbox:checked {
+    background-color: #007AFF;
+    border-color: #007AFF;
+}
+
+.menu-tree-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* 菜单图标 */
+.menu-tree-icon {
+    margin-right: 8px;
+    color: #86868B;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+/* 菜单标签 */
+.menu-tree-label {
+    flex: 1;
+    font-size: 15px;
+    color: #1D1D1F;
+    font-weight: 400;
+}
+
+/* 菜单类型徽章 */
+.menu-type-badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.menu-type-badge.badge-menu {
+    background: rgba(0, 122, 255, 0.1);
+    color: #007AFF;
+}
+
+.menu-type-badge.badge-directory {
+    background: rgba(255, 149, 0, 0.1);
+    color: #FF9500;
+}
+
+.menu-type-badge.badge-button {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34C759;
+}
+
+/* 子菜单容器 */
+.menu-tree-children {
+    list-style: none;
+    padding-left: 28px;
+    margin: 4px 0 0 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s;
+}
+
+.menu-tree-children.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+.menu-tree-children.expanded {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+/* 半选中状态（父节点部分子节点被选中） */
+.menu-tree-checkbox.indeterminate {
+    background-color: #007AFF;
+    border-color: #007AFF;
+    position: relative;
+}
+
+.menu-tree-checkbox.indeterminate::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 2px;
+    background: white;
+}
+
+/* 选中状态的对勾 */
+.menu-tree-checkbox:checked::before {
+    content: '\2713';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 深度层级样式 */
+.menu-tree-children .menu-tree-children .menu-tree-node {
+    opacity: 0.9;
+}
+
+/* 空状态 */
+.menu-tree-empty {
+    padding: 20px;
+    text-align: center;
+    color: #86868B;
+    font-size: 14px;
+}
+
+/* 响应式 */
+@media (max-width: 767px) {
+    .menu-tree-node {
+        padding: 8px 10px;
+    }
+
+    .menu-tree-label {
+        font-size: 14px;
+    }
+
+    .menu-tree-children {
+        padding-left: 20px;
+    }
+}
+
+/* 选中状态高亮 */
+.menu-tree-node.selected {
+    background: rgba(0, 122, 255, 0.08);
+}
+
+/* 禁用状态 */
+.menu-tree-checkbox:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.menu-tree-node.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.menu-tree-node.disabled:hover {
+    background: transparent;
+}

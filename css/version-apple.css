@@ -1,0 +1,313 @@
+/* ============================================
+   Apple-Inspired Design System
+   极简、优雅、精致
+   ============================================ */
+
+/* --------------------
+   CSS Variables
+   -------------------- */
+:root {
+    /* Colors - Apple System Colors */
+    --apple-blue: #007AFF;
+    --apple-blue-hover: #0051D5;
+    --apple-blue-light: rgba(0, 122, 255, 0.1);
+
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F7;
+    --bg-card: #FFFFFF;
+
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --text-tertiary: #6E6E73;
+
+    --border-light: rgba(0, 0, 0, 0.04);
+
+    --success-green: #34C759;
+
+    /* Typography */
+    --fs-title: 48px;
+    --fs-subtitle: 21px;
+    --fs-plan-name: 28px;
+    --fs-plan-name-en: 14px;
+    --fs-body: 17px;
+    --fs-small: 15px;
+
+    --fw-semibold: 600;
+    --fw-medium: 500;
+    --fw-regular: 400;
+
+    --lh-tight: 1.1;
+    --lh-normal: 1.5;
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 20px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 80px;
+
+    --card-padding: 48px;
+    --card-gap: 24px;
+
+    /* Shadows - Very Subtle */
+    --shadow-card:
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+
+    --shadow-card-hover:
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 2px 4px rgba(0, 0, 0, 0.06);
+
+    --shadow-badge:
+        0 1px 3px rgba(0, 0, 0, 0.08);
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------
+   Global Resets
+   -------------------- */
+.pricing-section * {
+    box-sizing: border-box;
+}
+
+.pricing-section {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display',
+                 'Inter', 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-primary);
+    font-size: var(--fs-body);
+    line-height: var(--lh-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------
+   Layout
+   -------------------- */
+.pricing-section {
+    padding: var(--space-3xl) var(--space-md);
+    background-color: var(--bg-secondary);
+}
+
+/* --------------------
+   Header
+   -------------------- */
+.pricing-section .display-title {
+    font-size: var(--fs-title);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    line-height: var(--lh-tight);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+}
+
+.pricing-section .subtitle {
+    font-size: var(--fs-subtitle);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* --------------------
+   Plan Cards
+   -------------------- */
+.plan-card {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    height: 100%;
+    overflow: hidden;
+}
+
+.plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.card-content {
+    padding: var(--card-padding);
+}
+
+/* Popular Badge */
+.badge-popular {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-badge);
+}
+
+/* Plan Name */
+.plan-name {
+    font-size: var(--fs-plan-name);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
+}
+
+.plan-name-en {
+    font-size: var(--fs-plan-name-en);
+    font-weight: var(--fw-medium);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-lg);
+}
+
+/* Stats Section */
+.stats-section {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding: 0;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: var(--fw-regular);
+}
+
+.stat-number {
+    font-size: 32px;
+    color: var(--text-primary);
+    font-weight: var(--fw-semibold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Edition Description */
+.edition-description {
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+/* Buttons */
+.btn-edit {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    color: var(--apple-blue);
+    background: transparent;
+    border: 1.5px solid var(--apple-blue);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-family: inherit;
+}
+
+.btn-edit:hover {
+    background: var(--apple-blue-light);
+    transform: scale(1.02);
+}
+
+.btn-edit:active {
+    transform: scale(0.98);
+}
+
+.btn-edit:focus-visible {
+    outline: 3px solid rgba(0, 122, 255, 0.4);
+    outline-offset: 2px;
+}
+
+/* Primary Button (Featured Card) */
+.btn-edit-primary {
+    background: var(--apple-blue);
+    color: var(--bg-primary);
+    border-color: var(--apple-blue);
+}
+
+.btn-edit-primary:hover {
+    background: var(--apple-blue-hover);
+    border-color: var(--apple-blue-hover);
+}
+
+/* Featured Card Styling */
+.plan-card-featured {
+    box-shadow:
+        var(--shadow-card),
+        inset 0 0 0 1px rgba(0, 122, 255, 0.1);
+}
+
+/* --------------------
+   Responsive Design
+   -------------------- */
+
+/* Tablet */
+@media (max-width: 991px) {
+    :root {
+        --card-padding: 36px;
+        --fs-title: 40px;
+        --fs-subtitle: 19px;
+    }
+
+    .pricing-section {
+        padding: var(--space-2xl) var(--space-md);
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    :root {
+        --card-padding: 32px;
+        --fs-title: 36px;
+        --fs-subtitle: 17px;
+        --fs-plan-name: 24px;
+        --space-3xl: 48px;
+    }
+
+    .pricing-section {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .pricing-section .display-title {
+        margin-bottom: var(--space-md);
+    }
+
+    .badge-popular {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+/* --------------------
+   Accessibility
+   -------------------- */
+
+/* Focus styles for keyboard navigation */
+.plan-card:focus-within {
+    outline: 3px solid rgba(0, 122, 255, 0.4);
+    outline-offset: 4px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .pricing-section * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

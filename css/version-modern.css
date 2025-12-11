@@ -1,0 +1,501 @@
+/* ============================================
+   版本管理页面 - 现代化设计系统
+   AlwaysControl Technology
+   ============================================ */
+
+/* ============================================
+   设计系统 CSS 变量定义
+   ============================================ */
+:root {
+    /* 颜色系统 */
+    --color-primary-start: #667eea;
+    --color-primary-end: #764ba2;
+
+    --color-basic-start: #4facfe;
+    --color-basic-end: #00f2fe;
+
+    --color-pro-start: #fa709a;
+    --color-pro-end: #fee140;
+
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-text-primary: #1a202c;
+    --color-text-secondary: #718096;
+    --color-text-muted: #a0aec0;
+    --color-border: #e2e8f0;
+
+    /* 排版系统 */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* 间距系统 */
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 3rem;
+
+    /* 阴影系统 */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --shadow-glow-basic: 0 0 30px rgba(79, 172, 254, 0.25);
+    --shadow-glow-pro: 0 0 30px rgba(250, 112, 154, 0.25);
+
+    /* 圆角系统 */
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* 过渡动画 */
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   页面头部样式
+   ============================================ */
+.version-page-header {
+    padding: var(--space-6) 0 var(--space-5);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加装饰性几何图形背景 */
+.version-page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.header-title-group {
+    position: relative;
+    z-index: 1;
+}
+
+.page-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-subtitle {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.85);
+    margin: var(--space-2) 0 0;
+    font-weight: var(--font-medium);
+}
+
+/* ============================================
+   版本卡片容器
+   ============================================ */
+.version-cards-container {
+    padding: var(--space-6) 0;
+    margin-top: -3rem; /* 负边距创建重叠效果 */
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   版本卡片样式
+   ============================================ */
+.edition-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-slow);
+    position: relative;
+    border: 1px solid var(--color-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 卡片悬浮效果 */
+.edition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: transparent;
+}
+
+.edition-card--basic:hover {
+    box-shadow: var(--shadow-xl), var(--shadow-glow-basic);
+}
+
+.edition-card--pro:hover {
+    box-shadow: var(--shadow-xl), var(--shadow-glow-pro);
+}
+
+/* ============================================
+   卡片头部（渐变背景区域）
+   ============================================ */
+.edition-card__header {
+    padding: var(--space-5);
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* 基础版渐变背景 */
+.edition-card--basic .edition-card__header {
+    background: linear-gradient(135deg, var(--color-basic-start) 0%, var(--color-basic-end) 100%);
+}
+
+/* 专业版渐变背景 */
+.edition-card--pro .edition-card__header {
+    background: linear-gradient(135deg, var(--color-pro-start) 0%, var(--color-pro-end) 100%);
+}
+
+/* 装饰性几何图形 */
+.edition-card__header::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ============================================
+   版本徽章
+   ============================================ */
+.edition-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-weight: var(--font-bold);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.edition-badge i {
+    font-size: 1rem;
+}
+
+/* 推荐标签（仅专业版） */
+.featured-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-full);
+    color: #fa709a;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    box-shadow: var(--shadow-sm);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+   卡片主体内容
+   ============================================ */
+.edition-card__body {
+    padding: var(--space-5);
+    flex-grow: 1;
+}
+
+.edition-name {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4);
+    letter-spacing: -0.01em;
+}
+
+/* ============================================
+   统计信息样式
+   ============================================ */
+.edition-stats {
+    margin-bottom: var(--space-5);
+    padding: var(--space-4);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid currentColor;
+}
+
+.edition-card--basic .edition-stats {
+    color: var(--color-basic-start);
+}
+
+.edition-card--pro .edition-stats {
+    color: var(--color-pro-start);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    color: currentColor;
+    opacity: 0.8;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-medium);
+    margin-bottom: 0.125rem;
+}
+
+.stat-value {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+/* ============================================
+   特性列表样式
+   ============================================ */
+.edition-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    transition: color var(--transition-base);
+}
+
+.feature-item:hover {
+    color: var(--color-text-primary);
+}
+
+.feature-icon {
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.edition-card--basic .feature-icon {
+    color: var(--color-basic-start);
+}
+
+.edition-card--pro .feature-icon {
+    color: var(--color-pro-start);
+}
+
+/* ============================================
+   卡片底部（编辑按钮区域）
+   ============================================ */
+.edition-card__footer {
+    padding: var(--space-5);
+    padding-top: 0;
+}
+
+.btn-edit-edition {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 基础版按钮 */
+.edition-card--basic .btn-edit-edition {
+    background: linear-gradient(135deg, var(--color-basic-start) 0%, var(--color-basic-end) 100%);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+/* 专业版按钮 */
+.btn-edit-edition--pro {
+    background: linear-gradient(135deg, var(--color-pro-start) 0%, var(--color-pro-end) 100%) !important;
+    box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3) !important;
+}
+
+/* 按钮悬浮效果 */
+.btn-edit-edition:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.edition-card--basic .btn-edit-edition:hover {
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.5);
+}
+
+.btn-edit-edition--pro:hover {
+    box-shadow: 0 6px 20px rgba(250, 112, 154, 0.5) !important;
+}
+
+/* 按钮点击效果 */
+.btn-edit-edition:active {
+    transform: translateY(0);
+}
+
+/* 按钮光泽效果 */
+.btn-edit-edition::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left var(--transition-slow);
+}
+
+.btn-edit-edition:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+
+/* 平板设备 */
+@media (max-width: 991px) {
+    .version-page-header {
+        padding: var(--space-5) 0 var(--space-4);
+    }
+
+    .page-title {
+        font-size: var(--text-2xl);
+    }
+
+    .version-cards-container {
+        margin-top: -2rem;
+    }
+}
+
+/* 移动设备 */
+@media (max-width: 767px) {
+    .version-page-header {
+        padding: var(--space-4) 0 var(--space-3);
+    }
+
+    .page-title {
+        font-size: var(--text-xl);
+    }
+
+    .page-subtitle {
+        font-size: var(--text-sm);
+    }
+
+    .version-cards-container {
+        padding: var(--space-4) 0;
+        margin-top: -1.5rem;
+    }
+
+    .edition-card__header {
+        min-height: 100px;
+        padding: var(--space-4);
+    }
+
+    .edition-card__body {
+        padding: var(--space-4);
+    }
+
+    .edition-name {
+        font-size: var(--text-xl);
+    }
+
+    .stat-value {
+        font-size: var(--text-xl);
+    }
+}
+
+/* ============================================
+   焦点可访问性样式
+   ============================================ */
+.btn-edit-edition:focus-visible {
+    outline: 3px solid rgba(102, 126, 234, 0.5);
+    outline-offset: 2px;
+}
+
+.edition-card:focus-within {
+    outline: 2px solid rgba(102, 126, 234, 0.3);
+    outline-offset: 4px;
+}
+
+/* ============================================
+   动画性能优化
+   ============================================ */
+.edition-card,
+.btn-edit-edition {
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
