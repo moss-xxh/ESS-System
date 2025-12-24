@@ -71,6 +71,7 @@ const i18n = {
                     welcomeBack: '欢迎回来，请输入您的凭证',
                     username: '13766477309',
                     password: '********',
+                    captcha: '请输入验证码',
                     rememberMe: '记住我',
                     loginButton: '登录',
                     loggingIn: '登录中...',
@@ -78,7 +79,9 @@ const i18n = {
                     demoTip: '演示账号：admin / 123456',
                     error: {
                         emptyFields: '请输入用户名和密码',
-                        invalidCredentials: '用户名或密码错误'
+                        invalidCredentials: '用户名或密码错误',
+                        emptyCaptcha: '请输入验证码',
+                        invalidCaptcha: '验证码错误，请重新输入'
                     }
                 },
                 menu: {
@@ -338,6 +341,7 @@ const i18n = {
                     welcomeBack: 'Welcome back, please enter your credentials',
                     username: '13766477309',
                     password: '********',
+                    captcha: 'Please enter the captcha',
                     rememberMe: 'Remember me',
                     loginButton: 'Login',
                     loggingIn: 'Logging in...',
@@ -345,7 +349,9 @@ const i18n = {
                     demoTip: 'Demo Account: admin / 123456',
                     error: {
                         emptyFields: 'Please enter username and password',
-                        invalidCredentials: 'Invalid username or password'
+                        invalidCredentials: 'Invalid username or password',
+                        emptyCaptcha: 'Please enter the captcha',
+                        invalidCaptcha: 'Invalid captcha, please try again'
                     }
                 },
                 menu: {
