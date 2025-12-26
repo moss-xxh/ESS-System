@@ -12,6 +12,9 @@ const App = {
             return;
         }
 
+        // 强制设置为中文
+        localStorage.setItem('language', 'zh-CN');
+
         // 初始化i18n
         await i18n.init();
 

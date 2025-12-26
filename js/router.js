@@ -548,7 +548,6 @@ const Router = {
                                         <div class="card-content">
                                             <!-- 版本名称 -->
                                             <div class="plan-name">${i18n.getCurrentLanguage() === 'en-US' ? edition.nameEn : edition.name}</div>
-                                            <div class="plan-name-en">${info.nameEn}</div>
 
                                             <!-- 用户统计 -->
                                             <div class="stats-section">
@@ -919,12 +918,9 @@ const Router = {
                 const activateDate = new Date(customer.activateTime);
                 const expiryDate = new Date(customer.expiryDate);
 
-                if (statusFilter === 'inactive') {
-                    // 未服务
-                    return customer.status === 'inactive';
-                } else if (statusFilter === 'expired') {
-                    // 已过期（且账户状态为active）
-                    return customer.status !== 'inactive' && now > expiryDate;
+                if (statusFilter === 'expired') {
+                    // 已过期
+                    return now > expiryDate;
                 } else if (statusFilter === 'active') {
                     // 服务中
                     return customer.status === 'active' && now >= activateDate && now <= expiryDate;
@@ -1080,9 +1076,7 @@ const Router = {
                     <select class="form-select" id="statusFilter" style="max-width: 160px; border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1);">
                         <option value="">${i18n.t('customer.allStatus')}</option>
                         <option value="active">${i18n.t('customer.status.active')}</option>
-                        <option value="expired">${i18n.t('customer.status.expired')}</option>
-                        <option value="inactive">${i18n.t('customer.status.notStarted')}</option>
-                    </select>
+                        <option value="expired">${i18n.t('customer.status.expired')}</option>                    </select>
                     <button class="btn btn-edit-primary ms-auto" style="border-radius: 10px; padding: 10px 20px;">
                         <i class="bi bi-search me-1"></i>${i18n.t('common.search')}
                     </button>
@@ -1154,11 +1148,7 @@ const Router = {
                                     let statusColor = '';
                                     let statusBg = '';
 
-                                    if (item.status === 'inactive') {
-                                        serviceStatus = i18n.t('customer.status.notStarted');
-                                        statusColor = '#8E8E93';
-                                        statusBg = 'rgba(142, 142, 147, 0.1)';
-                                    } else if (isExpired) {
+                                    if (isExpired) {
                                         serviceStatus = i18n.t('customer.status.expired');
                                         statusColor = '#FF3B30';
                                         statusBg = 'rgba(255, 59, 48, 0.1)';
@@ -1534,7 +1524,8 @@ const Router = {
                 const typeMap = {
                     'menu': { text: i18n.t('menuConfig.typeMenu'), style: 'background: rgba(0, 122, 255, 0.1); color: #007AFF;' },
                     'directory': { text: i18n.t('menuConfig.typeDirectory'), style: 'background: rgba(255, 149, 0, 0.1); color: #FF9500;' },
-                    'button': { text: i18n.t('menuConfig.typeButton'), style: 'background: rgba(52, 199, 89, 0.1); color: #34C759;' }
+                    'button': { text: i18n.t('menuConfig.typeButton'), style: 'background: rgba(52, 199, 89, 0.1); color: #34C759;' },
+                    'tab': { text: i18n.t('menuConfig.typeTab'), style: 'background: rgba(175, 82, 222, 0.1); color: #AF52DE;' }
                 };
                 const typeInfo = typeMap[item.type || 'menu'];
 
@@ -1552,7 +1543,6 @@ const Router = {
                             <span style="display: inline-block; padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 500; ${typeInfo.style}">${typeInfo.text}</span>
                         </td>
                         <td style="padding: 16px 20px; color: var(--text-secondary); font-size: 13px; font-family: 'SF Mono', Monaco, 'Courier New', monospace;">${item.path || '-'}</td>
-                        <td style="padding: 16px 20px; color: var(--text-secondary); font-size: 13px; font-family: 'SF Mono', Monaco, 'Courier New', monospace;">${item.icon || '-'}</td>
                         <td style="padding: 16px 20px; text-align: center;">
                             <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(0, 0, 0, 0.04); font-size: 13px; font-weight: 600; color: var(--text-primary);">${item.sort}</span>
                         </td>
@@ -1600,12 +1590,11 @@ const Router = {
                         <option value="menu">${i18n.t('menuConfig.typeMenu')}</option>
                         <option value="directory">${i18n.t('menuConfig.typeDirectory')}</option>
                         <option value="button">${i18n.t('menuConfig.typeButton')}</option>
+                        <option value="tab">${i18n.t('menuConfig.typeTab')}</option>
                     </select>
                     <select class="form-select" id="menuStatusFilter" style="max-width: 140px; border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1);">
                         <option value="">${i18n.t('menuConfig.allStatus')}</option>
-                        <option value="active">${i18n.t('menuConfig.statusActive')}</option>
-                        <option value="inactive">${i18n.t('menuConfig.statusInactive')}</option>
-                    </select>
+                        <option value="active">${i18n.t('menuConfig.statusActive')}</option>                    </select>
                     <div style="margin-left: auto; display: flex; gap: 8px;">
                         <button class="btn btn-edit-primary" onclick="Router.filterMenuTable()" style="border-radius: 10px; padding: 10px 20px;">
                             <i class="bi bi-search me-1"></i>${i18n.t('menuConfig.query')}
@@ -1640,7 +1629,6 @@ const Router = {
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.menuName')}</th>
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.type')}</th>
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.path')}</th>
-                                    <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.icon')}</th>
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.sort')}</th>
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('menuConfig.status')}</th>
                                     <th style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 16px 20px; text-transform: uppercase; letter-spacing: 0.5px;">${i18n.t('common.actions')}</th>
@@ -1771,7 +1759,7 @@ const Router = {
 
         // 常用图标列表
         const commonIcons = [
-            'bi-speedometer2', 'bi-tags', 'bi-people', 'bi-list-check', 'bi-currency-dollar',
+            'bi-tags', 'bi-people', 'bi-list-check', 'bi-currency-dollar',
             'bi-gear', 'bi-house', 'bi-file-text', 'bi-box', 'bi-graph-up',
             'bi-calendar', 'bi-clipboard', 'bi-bell', 'bi-envelope', 'bi-chat',
             'bi-shield', 'bi-award', 'bi-heart', 'bi-star', 'bi-bookmark',
@@ -1810,12 +1798,14 @@ const Router = {
                             <option value="menu" ${menuData.type === 'menu' ? 'selected' : ''}>${i18n.t('menuConfig.menuOption')}</option>
                             <option value="directory" ${menuData.type === 'directory' ? 'selected' : ''}>${i18n.t('menuConfig.directoryOption')}</option>
                             <option value="button" ${menuData.type === 'button' ? 'selected' : ''}>${i18n.t('menuConfig.buttonOption')}</option>
+                            <option value="tab" ${menuData.type === 'tab' ? 'selected' : ''}>${i18n.t('menuConfig.tabOption')}</option>
                         </select>
                         <div style="margin-top: 8px; padding: 12px; background: rgba(0, 122, 255, 0.05); border-left: 3px solid #007AFF; border-radius: 6px;">
                             <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
                                 <div style="margin-bottom: 4px;">${i18n.t('menuConfig.typeDescDirectory')}</div>
                                 <div style="margin-bottom: 4px;">${i18n.t('menuConfig.typeDescMenu')}</div>
-                                <div>${i18n.t('menuConfig.typeDescButton')}</div>
+                                <div style="margin-bottom: 4px;">${i18n.t('menuConfig.typeDescButton')}</div>
+                                <div>${i18n.t('menuConfig.typeDescTab')}</div>
                             </div>
                         </div>
                     </div>
@@ -1856,16 +1846,7 @@ const Router = {
                     <h6 style="font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">${i18n.t('menuConfig.iconSettings')}</h6>
 
                     <div class="form-group">
-                        <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                            ${i18n.t('menuConfig.iconClassName')}
-                        </label>
-                        <input type="text"
-                               class="form-control"
-                               name="icon"
-                               id="iconInput"
-                               value="${menuData.icon}"
-                               placeholder="${i18n.t('menuConfig.iconPlaceholder')}"
-                               style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; font-family: 'SF Mono', Monaco, 'Courier New', monospace; transition: all 0.2s; margin-bottom: 12px;">
+                        <input type="hidden" name="icon" id="iconInput" value="${menuData.icon}">
 
                         <div style="font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px;">
                             <i class="bi bi-palette me-1"></i>${i18n.t('menuConfig.quickSelect')}
@@ -3473,11 +3454,7 @@ const Router = {
         let statusColor = '';
         let statusBg = '';
 
-        if (customer.status === 'inactive') {
-            serviceStatus = i18n.t('customer.status.notStarted');
-            statusColor = '#8E8E93';
-            statusBg = 'rgba(142, 142, 147, 0.1)';
-        } else if (isExpired) {
+        if (isExpired) {
             serviceStatus = i18n.t('customer.status.expired');
             statusColor = '#FF3B30';
             statusBg = 'rgba(255, 59, 48, 0.1)';
@@ -3880,9 +3857,7 @@ const Router = {
 
             // 计算服务状态
             let serviceStatus = '';
-            if (c.status === 'inactive') {
-                serviceStatus = i18n.t('customer.status.notStarted');
-            } else if (isExpired) {
+            if (isExpired) {
                 serviceStatus = i18n.t('customer.status.expired');
             } else if (now < activateDate) {
                 serviceStatus = i18n.t('customer.status.disabled');

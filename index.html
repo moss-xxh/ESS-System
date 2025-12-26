@@ -500,7 +500,6 @@
     <div class="welcome-text">
         <h1>Hi, <span data-i18n="login.greeting">你好</span>！</h1>
         <div class="subtitle-cn" data-i18n="login.welcome">欢迎进入储能柜管理后台</div>
-        <div class="subtitle-en" data-i18n="login.subtitle">Welcome to the Energy Storage Cabinet Management System</div>
     </div>
 
     <!-- 右侧登录卡片 -->
@@ -543,6 +542,7 @@
                        data-i18n="login.captcha"
                        placeholder="请输入验证码"
                        style="padding-right: 135px;"
+                       value="1234"
                        required>
                 <div class="captcha-container">
                     <canvas id="captchaCanvas" width="120" height="40" title="点击刷新验证码"></canvas>
@@ -618,6 +618,8 @@
 
         // 初始化i18n
         document.addEventListener('DOMContentLoaded', async function() {
+            // 强制设置为中文
+            localStorage.setItem('language', 'zh-CN');
             await i18n.init();
 
             // 更新语言显示
