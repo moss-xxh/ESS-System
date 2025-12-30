@@ -1,0 +1,978 @@
+{
+  "menuStructure": {
+    "description": "储能柜管理系统完整菜单配置",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-30",
+    "menus": [
+      {
+        "id": 100,
+        "name": "仪表盘",
+        "nameEn": "Dashboard",
+        "type": "menu",
+        "path": "dashboard.html",
+        "icon": "bi-speedometer2",
+        "emoji": "📊",
+        "parentId": null,
+        "sort": 1,
+        "status": "active",
+        "description": "系统总览和数据统计",
+        "buttons": [
+          {
+            "id": 1001,
+            "name": "数据视图",
+            "nameEn": "Data View",
+            "type": "button",
+            "icon": "bi-table",
+            "parentId": 100,
+            "sort": 1,
+            "status": "active"
+          },
+          {
+            "id": 1002,
+            "name": "地图视图",
+            "nameEn": "Map View",
+            "type": "button",
+            "icon": "bi-map",
+            "parentId": 100,
+            "sort": 2,
+            "status": "active"
+          },
+          {
+            "id": 1003,
+            "name": "编辑能量流",
+            "nameEn": "Edit Energy Flow",
+            "type": "button",
+            "icon": "bi-pencil",
+            "parentId": 100,
+            "sort": 3,
+            "status": "active"
+          },
+          {
+            "id": 1004,
+            "name": "设置",
+            "nameEn": "Settings",
+            "type": "button",
+            "icon": "bi-gear",
+            "parentId": 100,
+            "sort": 4,
+            "status": "active"
+          }
+        ],
+        "tabs": [
+          {
+            "id": 1011,
+            "name": "昨日",
+            "nameEn": "Yesterday",
+            "type": "tab",
+            "parentId": 100,
+            "sort": 1,
+            "status": "active"
+          },
+          {
+            "id": 1012,
+            "name": "今日",
+            "nameEn": "Today",
+            "type": "tab",
+            "parentId": 100,
+            "sort": 2,
+            "status": "active"
+          },
+          {
+            "id": 1013,
+            "name": "本月",
+            "nameEn": "This Month",
+            "type": "tab",
+            "parentId": 100,
+            "sort": 3,
+            "status": "active"
+          },
+          {
+            "id": 1014,
+            "name": "累计",
+            "nameEn": "Total",
+            "type": "tab",
+            "parentId": 100,
+            "sort": 4,
+            "status": "active"
+          }
+        ]
+      },
+      {
+        "id": 200,
+        "name": "站点管理",
+        "nameEn": "Site Management",
+        "type": "menu",
+        "path": "site1.html",
+        "icon": "bi-building",
+        "emoji": "🏢",
+        "parentId": null,
+        "sort": 2,
+        "status": "active",
+        "description": "电站站点管理",
+        "buttons": [
+          {
+            "id": 2001,
+            "name": "新增站点",
+            "nameEn": "Add Site",
+            "type": "button",
+            "icon": "bi-plus-circle",
+            "parentId": 200,
+            "sort": 1,
+            "status": "active"
+          },
+          {
+            "id": 2002,
+            "name": "编辑站点",
+            "nameEn": "Edit Site",
+            "type": "button",
+            "icon": "bi-pencil",
+            "parentId": 200,
+            "sort": 2,
+            "status": "active"
+          },
+          {
+            "id": 2003,
+            "name": "删除站点",
+            "nameEn": "Delete Site",
+            "type": "button",
+            "icon": "bi-trash",
+            "parentId": 200,
+            "sort": 3,
+            "status": "active"
+          },
+          {
+            "id": 2004,
+            "name": "查看详情",
+            "nameEn": "View Details",
+            "type": "button",
+            "icon": "bi-eye",
+            "parentId": 200,
+            "sort": 4,
+            "status": "active"
+          }
+        ]
+      },
+      {
+        "id": 300,
+        "name": "设备管理",
+        "nameEn": "Device Management",
+        "type": "directory",
+        "path": null,
+        "icon": "bi-gear-fill",
+        "emoji": "⚙️",
+        "parentId": null,
+        "sort": 3,
+        "status": "active",
+        "description": "设备管理目录",
+        "children": [
+          {
+            "id": 301,
+            "name": "设备列表",
+            "nameEn": "Device List",
+            "type": "menu",
+            "path": "devices.html",
+            "icon": "bi-list-ul",
+            "emoji": "📋",
+            "parentId": 300,
+            "sort": 1,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 3011,
+                "name": "新增设备",
+                "nameEn": "Add Device",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 301,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 3012,
+                "name": "编辑设备",
+                "nameEn": "Edit Device",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 301,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 3013,
+                "name": "删除设备",
+                "nameEn": "Delete Device",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 301,
+                "sort": 3,
+                "status": "active"
+              },
+              {
+                "id": 3014,
+                "name": "导出数据",
+                "nameEn": "Export Data",
+                "type": "button",
+                "icon": "bi-download",
+                "parentId": 301,
+                "sort": 4,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 302,
+            "name": "EMS升级",
+            "nameEn": "EMS Upgrade",
+            "type": "menu",
+            "path": "devices1.html",
+            "icon": "bi-arrow-repeat",
+            "emoji": "🔄",
+            "parentId": 300,
+            "sort": 2,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 3021,
+                "name": "上传固件",
+                "nameEn": "Upload Firmware",
+                "type": "button",
+                "icon": "bi-upload",
+                "parentId": 302,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 3022,
+                "name": "批量升级",
+                "nameEn": "Batch Upgrade",
+                "type": "button",
+                "icon": "bi-lightning",
+                "parentId": 302,
+                "sort": 2,
+                "status": "active"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 400,
+        "name": "消息中心",
+        "nameEn": "Message Center",
+        "type": "directory",
+        "path": null,
+        "icon": "bi-bell-fill",
+        "emoji": "🔔",
+        "parentId": null,
+        "sort": 4,
+        "status": "active",
+        "description": "消息和告警管理",
+        "children": [
+          {
+            "id": 401,
+            "name": "消息统计",
+            "nameEn": "Message Statistics",
+            "type": "menu",
+            "path": "alarm-statistics.html",
+            "icon": "bi-graph-up",
+            "emoji": "📈",
+            "parentId": 400,
+            "sort": 1,
+            "status": "active",
+            "tabs": [
+              {
+                "id": 4011,
+                "name": "今日",
+                "nameEn": "Today",
+                "type": "tab",
+                "parentId": 401,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 4012,
+                "name": "本周",
+                "nameEn": "This Week",
+                "type": "tab",
+                "parentId": 401,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 4013,
+                "name": "本月",
+                "nameEn": "This Month",
+                "type": "tab",
+                "parentId": 401,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 402,
+            "name": "消息列表",
+            "nameEn": "Message List",
+            "type": "menu",
+            "path": "alarm-management.html",
+            "icon": "bi-list-ul",
+            "emoji": "📋",
+            "parentId": 400,
+            "sort": 2,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 4021,
+                "name": "标记已读",
+                "nameEn": "Mark as Read",
+                "type": "button",
+                "icon": "bi-check2",
+                "parentId": 402,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 4022,
+                "name": "删除消息",
+                "nameEn": "Delete Message",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 402,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 4023,
+                "name": "批量处理",
+                "nameEn": "Batch Process",
+                "type": "button",
+                "icon": "bi-check2-all",
+                "parentId": 402,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 403,
+            "name": "消息策略",
+            "nameEn": "Message Strategy",
+            "type": "menu",
+            "path": "rule-engine.html",
+            "icon": "bi-gear-fill",
+            "emoji": "⚙️",
+            "parentId": 400,
+            "sort": 3,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 4031,
+                "name": "新增策略",
+                "nameEn": "Add Strategy",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 403,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 4032,
+                "name": "编辑策略",
+                "nameEn": "Edit Strategy",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 403,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 4033,
+                "name": "删除策略",
+                "nameEn": "Delete Strategy",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 403,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 500,
+        "name": "报告中心",
+        "nameEn": "Report Center",
+        "type": "directory",
+        "path": null,
+        "icon": "bi-bar-chart-fill",
+        "emoji": "📈",
+        "parentId": null,
+        "sort": 5,
+        "status": "active",
+        "description": "报表和数据分析",
+        "children": [
+          {
+            "id": 501,
+            "name": "电量报表",
+            "nameEn": "Power Report",
+            "type": "menu",
+            "path": "power-report.html",
+            "icon": "bi-lightning-fill",
+            "emoji": "⚡",
+            "parentId": 500,
+            "sort": 1,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 5011,
+                "name": "导出报表",
+                "nameEn": "Export Report",
+                "type": "button",
+                "icon": "bi-download",
+                "parentId": 501,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 5012,
+                "name": "打印报表",
+                "nameEn": "Print Report",
+                "type": "button",
+                "icon": "bi-printer",
+                "parentId": 501,
+                "sort": 2,
+                "status": "active"
+              }
+            ],
+            "tabs": [
+              {
+                "id": 5013,
+                "name": "日报",
+                "nameEn": "Daily",
+                "type": "tab",
+                "parentId": 501,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 5014,
+                "name": "月报",
+                "nameEn": "Monthly",
+                "type": "tab",
+                "parentId": 501,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 5015,
+                "name": "年报",
+                "nameEn": "Yearly",
+                "type": "tab",
+                "parentId": 501,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 502,
+            "name": "收益分析",
+            "nameEn": "Revenue Analysis",
+            "type": "menu",
+            "path": "data-analysis.html",
+            "icon": "bi-cash-coin",
+            "emoji": "💰",
+            "parentId": 500,
+            "sort": 2,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 5021,
+                "name": "导出数据",
+                "nameEn": "Export Data",
+                "type": "button",
+                "icon": "bi-download",
+                "parentId": 502,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 5022,
+                "name": "生成报告",
+                "nameEn": "Generate Report",
+                "type": "button",
+                "icon": "bi-file-earmark-text",
+                "parentId": 502,
+                "sort": 2,
+                "status": "active"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 600,
+        "name": "系统管理",
+        "nameEn": "System Management",
+        "type": "directory",
+        "path": null,
+        "icon": "bi-gear-fill",
+        "emoji": "⚙️",
+        "parentId": null,
+        "sort": 6,
+        "status": "active",
+        "description": "系统设置和管理",
+        "children": [
+          {
+            "id": 601,
+            "name": "角色管理",
+            "nameEn": "Role Management",
+            "type": "menu",
+            "path": "roles.html",
+            "icon": "bi-people-fill",
+            "emoji": "👥",
+            "parentId": 600,
+            "sort": 1,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6011,
+                "name": "新增角色",
+                "nameEn": "Add Role",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 601,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6012,
+                "name": "编辑角色",
+                "nameEn": "Edit Role",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 601,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6013,
+                "name": "删除角色",
+                "nameEn": "Delete Role",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 601,
+                "sort": 3,
+                "status": "active"
+              },
+              {
+                "id": 6014,
+                "name": "权限配置",
+                "nameEn": "Permission Config",
+                "type": "button",
+                "icon": "bi-shield-check",
+                "parentId": 601,
+                "sort": 4,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 602,
+            "name": "人员管理",
+            "nameEn": "Personnel Management",
+            "type": "menu",
+            "path": "personnel.html",
+            "icon": "bi-person-fill",
+            "emoji": "👤",
+            "parentId": 600,
+            "sort": 2,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6021,
+                "name": "新增人员",
+                "nameEn": "Add Personnel",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 602,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6022,
+                "name": "编辑人员",
+                "nameEn": "Edit Personnel",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 602,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6023,
+                "name": "删除人员",
+                "nameEn": "Delete Personnel",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 602,
+                "sort": 3,
+                "status": "active"
+              },
+              {
+                "id": 6024,
+                "name": "重置密码",
+                "nameEn": "Reset Password",
+                "type": "button",
+                "icon": "bi-key",
+                "parentId": 602,
+                "sort": 4,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 603,
+            "name": "日志管理",
+            "nameEn": "Log Management",
+            "type": "menu",
+            "path": "logs.html",
+            "icon": "bi-file-text-fill",
+            "emoji": "📄",
+            "parentId": 600,
+            "sort": 3,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6031,
+                "name": "导出日志",
+                "nameEn": "Export Logs",
+                "type": "button",
+                "icon": "bi-download",
+                "parentId": 603,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6032,
+                "name": "清空日志",
+                "nameEn": "Clear Logs",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 603,
+                "sort": 2,
+                "status": "active"
+              }
+            ],
+            "tabs": [
+              {
+                "id": 6033,
+                "name": "操作日志",
+                "nameEn": "Operation Logs",
+                "type": "tab",
+                "parentId": 603,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6034,
+                "name": "系统日志",
+                "nameEn": "System Logs",
+                "type": "tab",
+                "parentId": 603,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6035,
+                "name": "错误日志",
+                "nameEn": "Error Logs",
+                "type": "tab",
+                "parentId": 603,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 604,
+            "name": "电价设置",
+            "nameEn": "Electricity Price Settings",
+            "type": "menu",
+            "path": "electricity-price-new.html",
+            "icon": "bi-cash-coin",
+            "emoji": "💰",
+            "parentId": 600,
+            "sort": 4,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6041,
+                "name": "新增电价",
+                "nameEn": "Add Price",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 604,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6042,
+                "name": "编辑电价",
+                "nameEn": "Edit Price",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 604,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6043,
+                "name": "删除电价",
+                "nameEn": "Delete Price",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 604,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 605,
+            "name": "个性化设置",
+            "nameEn": "Personalization Settings",
+            "type": "menu",
+            "path": "personalization.html",
+            "icon": "bi-palette-fill",
+            "emoji": "🎨",
+            "parentId": 600,
+            "sort": 5,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6051,
+                "name": "保存设置",
+                "nameEn": "Save Settings",
+                "type": "button",
+                "icon": "bi-save",
+                "parentId": 605,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6052,
+                "name": "重置设置",
+                "nameEn": "Reset Settings",
+                "type": "button",
+                "icon": "bi-arrow-clockwise",
+                "parentId": 605,
+                "sort": 2,
+                "status": "active"
+              }
+            ],
+            "tabs": [
+              {
+                "id": 6053,
+                "name": "主题设置",
+                "nameEn": "Theme Settings",
+                "type": "tab",
+                "parentId": 605,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6054,
+                "name": "图标设置",
+                "nameEn": "Icon Settings",
+                "type": "tab",
+                "parentId": 605,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6055,
+                "name": "布局设置",
+                "nameEn": "Layout Settings",
+                "type": "tab",
+                "parentId": 605,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 606,
+            "name": "版本管理",
+            "nameEn": "Version Management",
+            "type": "menu",
+            "path": "#/version",
+            "icon": "bi-tags-fill",
+            "emoji": "🏷️",
+            "parentId": 600,
+            "sort": 6,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6061,
+                "name": "新增版本",
+                "nameEn": "Add Version",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 606,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6062,
+                "name": "编辑版本",
+                "nameEn": "Edit Version",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 606,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6063,
+                "name": "删除版本",
+                "nameEn": "Delete Version",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 606,
+                "sort": 3,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 607,
+            "name": "客户管理",
+            "nameEn": "Customer Management",
+            "type": "menu",
+            "path": "#/customer",
+            "icon": "bi-people-fill",
+            "emoji": "👥",
+            "parentId": 600,
+            "sort": 7,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6071,
+                "name": "新增客户",
+                "nameEn": "Add Customer",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 607,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6072,
+                "name": "编辑客户",
+                "nameEn": "Edit Customer",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 607,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6073,
+                "name": "删除客户",
+                "nameEn": "Delete Customer",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 607,
+                "sort": 3,
+                "status": "active"
+              },
+              {
+                "id": 6074,
+                "name": "查看详情",
+                "nameEn": "View Details",
+                "type": "button",
+                "icon": "bi-eye",
+                "parentId": 607,
+                "sort": 4,
+                "status": "active"
+              }
+            ]
+          },
+          {
+            "id": 608,
+            "name": "菜单配置",
+            "nameEn": "Menu Configuration",
+            "type": "menu",
+            "path": "#/menu/config",
+            "icon": "bi-list-check",
+            "emoji": "📋",
+            "parentId": 600,
+            "sort": 8,
+            "status": "active",
+            "buttons": [
+              {
+                "id": 6081,
+                "name": "新增菜单",
+                "nameEn": "Add Menu",
+                "type": "button",
+                "icon": "bi-plus-circle",
+                "parentId": 608,
+                "sort": 1,
+                "status": "active"
+              },
+              {
+                "id": 6082,
+                "name": "编辑菜单",
+                "nameEn": "Edit Menu",
+                "type": "button",
+                "icon": "bi-pencil",
+                "parentId": 608,
+                "sort": 2,
+                "status": "active"
+              },
+              {
+                "id": 6083,
+                "name": "删除菜单",
+                "nameEn": "Delete Menu",
+                "type": "button",
+                "icon": "bi-trash",
+                "parentId": 608,
+                "sort": 3,
+                "status": "active"
+              },
+              {
+                "id": 6084,
+                "name": "展开全部",
+                "nameEn": "Expand All",
+                "type": "button",
+                "icon": "bi-arrows-expand",
+                "parentId": 608,
+                "sort": 4,
+                "status": "active"
+              },
+              {
+                "id": 6085,
+                "name": "收起全部",
+                "nameEn": "Collapse All",
+                "type": "button",
+                "icon": "bi-arrows-collapse",
+                "parentId": 608,
+                "sort": 5,
+                "status": "active"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "totalMenus": 6,
+      "totalDirectories": 4,
+      "totalSubMenus": 16,
+      "totalButtons": 67,
+      "totalTabs": 15
+    }
+  }
+}

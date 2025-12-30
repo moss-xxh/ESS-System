@@ -465,27 +465,120 @@ const MockAPI = {
      */
     menus: {
         data: [
-            // 一级目录：系统管理
-            { id: 1, name: '系统管理', nameEn: 'System Management', type: 'directory', path: null, icon: 'bi-gear-fill', parentId: null, sort: 1, status: 'active' },
+            // ==================== 仪表盘 ====================
+            { id: 100, name: '仪表盘', nameEn: 'Dashboard', type: 'menu', path: 'dashboard.html', icon: 'bi-speedometer2', parentId: null, sort: 1, status: 'active' },
+            { id: 1001, name: '数据视图', nameEn: 'Data View', type: 'tab', path: null, icon: null, parentId: 100, sort: 1, status: 'active' },
+            { id: 1002, name: '地图视图', nameEn: 'Map View', type: 'tab', path: null, icon: null, parentId: 100, sort: 2, status: 'active' },
+            { id: 1003, name: '编辑能量流', nameEn: 'Edit Energy Flow', type: 'button', path: null, icon: null, parentId: 1001, sort: 1, status: 'active' },
+            { id: 1004, name: '设置', nameEn: 'Settings', type: 'button', path: null, icon: null, parentId: 1001, sort: 2, status: 'active' },
 
-            // 二级菜单：版本管理
-            { id: 2, name: '版本管理', nameEn: 'Version Management', type: 'menu', path: '/version', icon: 'bi-tags', parentId: 1, sort: 1, status: 'active' },
-            { id: 21, name: '新增版本', nameEn: 'Create Version', type: 'button', path: null, icon: 'bi-plus-circle', parentId: 2, sort: 1, status: 'active' },
-            { id: 22, name: '编辑版本', nameEn: 'Edit Version', type: 'button', path: null, icon: 'bi-pencil', parentId: 2, sort: 2, status: 'active' },
-            { id: 23, name: '删除版本', nameEn: 'Delete Version', type: 'button', path: null, icon: 'bi-trash', parentId: 2, sort: 3, status: 'active' },
+            // ==================== 站点管理 ====================
+            { id: 200, name: '站点管理', nameEn: 'Site Management', type: 'menu', path: 'site1.html', icon: 'bi-building', parentId: null, sort: 2, status: 'active' },
+            { id: 2001, name: '新增站点', nameEn: 'Add Site', type: 'button', path: null, icon: null, parentId: 200, sort: 1, status: 'active' },
+            { id: 2002, name: '编辑站点', nameEn: 'Edit Site', type: 'button', path: null, icon: null, parentId: 200, sort: 2, status: 'active' },
+            { id: 2003, name: '删除站点', nameEn: 'Delete Site', type: 'button', path: null, icon: null, parentId: 200, sort: 3, status: 'active' },
+            { id: 2004, name: '查看详情', nameEn: 'View Details', type: 'button', path: null, icon: null, parentId: 200, sort: 4, status: 'active' },
 
-            // 二级菜单：客户管理
-            { id: 3, name: '客户管理', nameEn: 'Customer Management', type: 'menu', path: '/customer', icon: 'bi-people', parentId: 1, sort: 2, status: 'active' },
-            { id: 31, name: '新增客户', nameEn: 'Create Customer', type: 'button', path: null, icon: 'bi-plus-circle', parentId: 3, sort: 1, status: 'active' },
-            { id: 32, name: '编辑客户', nameEn: 'Edit Customer', type: 'button', path: null, icon: 'bi-pencil', parentId: 3, sort: 2, status: 'active' },
-            { id: 33, name: '删除客户', nameEn: 'Delete Customer', type: 'button', path: null, icon: 'bi-trash', parentId: 3, sort: 3, status: 'active' },
-            { id: 34, name: '查看详情', nameEn: 'View Details', type: 'button', path: null, icon: 'bi-eye', parentId: 3, sort: 4, status: 'active' },
+            // ==================== 设备管理 ====================
+            { id: 300, name: '设备管理', nameEn: 'Device Management', type: 'directory', path: null, icon: 'bi-gear-fill', parentId: null, sort: 3, status: 'active' },
+            // 设备列表
+            { id: 301, name: '设备列表', nameEn: 'Device List', type: 'menu', path: 'devices.html', icon: 'bi-list-ul', parentId: 300, sort: 1, status: 'active' },
+            { id: 3015, name: '表格视图', nameEn: 'Table View', type: 'tab', path: null, icon: null, parentId: 301, sort: 1, status: 'active' },
+            { id: 3011, name: '新增设备', nameEn: 'Add Device', type: 'button', path: null, icon: null, parentId: 3015, sort: 1, status: 'active' },
+            { id: 3012, name: '编辑设备', nameEn: 'Edit Device', type: 'button', path: null, icon: null, parentId: 3015, sort: 2, status: 'active' },
+            { id: 3013, name: '删除设备', nameEn: 'Delete Device', type: 'button', path: null, icon: null, parentId: 3015, sort: 3, status: 'active' },
+            { id: 3014, name: '导出数据', nameEn: 'Export Data', type: 'button', path: null, icon: null, parentId: 3015, sort: 4, status: 'active' },
+            { id: 3017, name: '详情', nameEn: 'Details', type: 'button', path: null, icon: null, parentId: 3015, sort: 5, status: 'active' },
+            { id: 3016, name: '场景视图', nameEn: 'Scenario View', type: 'tab', path: null, icon: null, parentId: 301, sort: 2, status: 'active' },
+            { id: 3018, name: '详情', nameEn: 'Details', type: 'button', path: null, icon: null, parentId: 3016, sort: 1, status: 'active' },
+            { id: 3019, name: '历史数据导出', nameEn: 'Export Historical Data', type: 'button', path: null, icon: null, parentId: 3016, sort: 2, status: 'active' },
+            { id: 3020, name: '升级', nameEn: 'Upgrade', type: 'button', path: null, icon: null, parentId: 3016, sort: 3, status: 'active' },
+            // EMS升级
+            { id: 302, name: 'EMS升级', nameEn: 'EMS Upgrade', type: 'menu', path: 'devices1.html', icon: 'bi-arrow-repeat', parentId: 300, sort: 2, status: 'active' },
+            { id: 3022, name: 'EMS升级', nameEn: 'EMS Upgrade', type: 'button', path: null, icon: null, parentId: 302, sort: 1, status: 'active' },
+            { id: 3023, name: '升级进度', nameEn: 'Upgrade Progress', type: 'button', path: null, icon: null, parentId: 302, sort: 2, status: 'active' },
 
-            // 二级菜单：菜单配置
-            { id: 41, name: '菜单配置', nameEn: 'Menu Configuration', type: 'menu', path: '/menu/config', icon: 'bi-list-check', parentId: 1, sort: 3, status: 'active' },
-            { id: 42, name: '新增菜单', nameEn: 'Create Menu', type: 'button', path: null, icon: 'bi-plus-circle', parentId: 41, sort: 1, status: 'active' },
-            { id: 43, name: '编辑菜单', nameEn: 'Edit Menu', type: 'button', path: null, icon: 'bi-pencil', parentId: 41, sort: 2, status: 'active' },
-            { id: 44, name: '删除菜单', nameEn: 'Delete Menu', type: 'button', path: null, icon: 'bi-trash', parentId: 41, sort: 3, status: 'active' }
+            // ==================== 消息中心 ====================
+            { id: 400, name: '消息中心', nameEn: 'Message Center', type: 'directory', path: null, icon: 'bi-bell-fill', parentId: null, sort: 4, status: 'active' },
+            // 消息统计
+            { id: 401, name: '消息统计', nameEn: 'Message Statistics', type: 'menu', path: 'alarm-statistics.html', icon: 'bi-graph-up', parentId: 400, sort: 1, status: 'active' },
+            { id: 4014, name: '故障', nameEn: 'Fault', type: 'tab', path: null, icon: null, parentId: 401, sort: 1, status: 'active' },
+            { id: 4015, name: '告警', nameEn: 'Alarm', type: 'tab', path: null, icon: null, parentId: 401, sort: 2, status: 'active' },
+            // 消息列表
+            { id: 402, name: '消息列表', nameEn: 'Message List', type: 'menu', path: 'alarm-management.html', icon: 'bi-list-ul', parentId: 400, sort: 2, status: 'active' },
+            { id: 4024, name: '故障消息', nameEn: 'Fault Message', type: 'tab', path: null, icon: null, parentId: 402, sort: 1, status: 'active' },
+            { id: 4027, name: '详情', nameEn: 'Details', type: 'button', path: null, icon: null, parentId: 4024, sort: 1, status: 'active' },
+            { id: 4028, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 4024, sort: 2, status: 'active' },
+            { id: 4029, name: '修复', nameEn: 'Repair', type: 'button', path: null, icon: null, parentId: 4024, sort: 3, status: 'active' },
+            { id: 4025, name: '告警消息', nameEn: 'Alarm Message', type: 'tab', path: null, icon: null, parentId: 402, sort: 2, status: 'active' },
+            { id: 4034, name: '详情', nameEn: 'Details', type: 'button', path: null, icon: null, parentId: 4025, sort: 1, status: 'active' },
+            { id: 4035, name: '消警', nameEn: 'Clear Alarm', type: 'button', path: null, icon: null, parentId: 4025, sort: 2, status: 'active' },
+            { id: 4036, name: '批量解决', nameEn: 'Batch Resolve', type: 'button', path: null, icon: null, parentId: 4025, sort: 3, status: 'active' },
+            { id: 4037, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 4025, sort: 4, status: 'active' },
+            { id: 4026, name: '通知消息', nameEn: 'Notification Message', type: 'tab', path: null, icon: null, parentId: 402, sort: 3, status: 'active' },
+            { id: 4038, name: '批量已读', nameEn: 'Batch Mark as Read', type: 'button', path: null, icon: null, parentId: 4026, sort: 1, status: 'active' },
+            { id: 4039, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 4026, sort: 2, status: 'active' },
+            { id: 4040, name: '详情', nameEn: 'Details', type: 'button', path: null, icon: null, parentId: 4026, sort: 3, status: 'active' },
+            // 消息策略
+            { id: 403, name: '消息策略', nameEn: 'Message Strategy', type: 'menu', path: 'rule-engine.html', icon: 'bi-gear-fill', parentId: 400, sort: 3, status: 'active' },
+            { id: 4031, name: '新增策略', nameEn: 'Add Strategy', type: 'button', path: null, icon: null, parentId: 403, sort: 1, status: 'active' },
+            { id: 4032, name: '编辑策略', nameEn: 'Edit Strategy', type: 'button', path: null, icon: null, parentId: 403, sort: 2, status: 'active' },
+            { id: 4033, name: '删除策略', nameEn: 'Delete Strategy', type: 'button', path: null, icon: null, parentId: 403, sort: 3, status: 'active' },
+
+            // ==================== 报告中心 ====================
+            { id: 500, name: '报告中心', nameEn: 'Report Center', type: 'directory', path: null, icon: 'bi-bar-chart-fill', parentId: null, sort: 5, status: 'active' },
+            // 电量报表
+            { id: 501, name: '电量报表', nameEn: 'Power Report', type: 'menu', path: 'power-report.html', icon: 'bi-lightning-fill', parentId: 500, sort: 1, status: 'active' },
+            { id: 5016, name: '图表', nameEn: 'Chart', type: 'tab', path: null, icon: null, parentId: 501, sort: 1, status: 'active' },
+            { id: 5017, name: '表格', nameEn: 'Table', type: 'tab', path: null, icon: null, parentId: 501, sort: 2, status: 'active' },
+            { id: 5018, name: '导出数据', nameEn: 'Export Data', type: 'button', path: null, icon: null, parentId: 5017, sort: 1, status: 'active' },
+            // 收益分析
+            { id: 502, name: '收益分析', nameEn: 'Revenue Analysis', type: 'menu', path: 'data-analysis.html', icon: 'bi-cash-coin', parentId: 500, sort: 2, status: 'active' },
+            { id: 5023, name: '图表', nameEn: 'Chart', type: 'tab', path: null, icon: null, parentId: 502, sort: 1, status: 'active' },
+            { id: 5024, name: '电价设置', nameEn: 'Electricity Price Settings', type: 'button', path: null, icon: null, parentId: 5023, sort: 1, status: 'active' },
+            { id: 5025, name: '表格', nameEn: 'Table', type: 'tab', path: null, icon: null, parentId: 502, sort: 2, status: 'active' },
+            { id: 5026, name: '电价设置', nameEn: 'Electricity Price Settings', type: 'button', path: null, icon: null, parentId: 5025, sort: 1, status: 'active' },
+            { id: 5027, name: '导出数据', nameEn: 'Export Data', type: 'button', path: null, icon: null, parentId: 5025, sort: 2, status: 'active' },
+
+            // ==================== 系统管理 ====================
+            { id: 600, name: '系统管理', nameEn: 'System Management', type: 'directory', path: null, icon: 'bi-gear-fill', parentId: null, sort: 6, status: 'active' },
+            // 角色管理
+            { id: 601, name: '角色管理', nameEn: 'Role Management', type: 'menu', path: 'roles.html', icon: 'bi-people-fill', parentId: 600, sort: 1, status: 'active' },
+            { id: 6011, name: '新增角色', nameEn: 'Add Role', type: 'button', path: null, icon: null, parentId: 601, sort: 1, status: 'active' },
+            { id: 6012, name: '编辑角色', nameEn: 'Edit Role', type: 'button', path: null, icon: null, parentId: 601, sort: 2, status: 'active' },
+            { id: 6013, name: '删除角色', nameEn: 'Delete Role', type: 'button', path: null, icon: null, parentId: 601, sort: 3, status: 'active' },
+            { id: 6014, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 601, sort: 4, status: 'active' },
+            // 人员管理
+            { id: 602, name: '人员管理', nameEn: 'Personnel Management', type: 'menu', path: 'personnel.html', icon: 'bi-person-fill', parentId: 600, sort: 2, status: 'active' },
+            { id: 6021, name: '新增人员', nameEn: 'Add Personnel', type: 'button', path: null, icon: null, parentId: 602, sort: 1, status: 'active' },
+            { id: 6022, name: '编辑人员', nameEn: 'Edit Personnel', type: 'button', path: null, icon: null, parentId: 602, sort: 2, status: 'active' },
+            { id: 6023, name: '删除人员', nameEn: 'Delete Personnel', type: 'button', path: null, icon: null, parentId: 602, sort: 3, status: 'active' },
+            { id: 6024, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 602, sort: 4, status: 'active' },
+            // 日志管理
+            { id: 603, name: '日志管理', nameEn: 'Log Management', type: 'menu', path: 'logs.html', icon: 'bi-file-text-fill', parentId: 600, sort: 3, status: 'active' },
+            { id: 6033, name: '操作日志', nameEn: 'Operation Logs', type: 'tab', path: null, icon: null, parentId: 603, sort: 1, status: 'active' },
+            { id: 6036, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 6033, sort: 1, status: 'active' },
+            { id: 6037, name: '登录日志', nameEn: 'Login Logs', type: 'tab', path: null, icon: null, parentId: 603, sort: 2, status: 'active' },
+            { id: 6038, name: '导出', nameEn: 'Export', type: 'button', path: null, icon: null, parentId: 6037, sort: 1, status: 'active' },
+            // 电价设置
+            { id: 604, name: '电价设置', nameEn: 'Electricity Price Settings', type: 'menu', path: 'electricity-price-new.html', icon: 'bi-cash-coin', parentId: 600, sort: 4, status: 'active' },
+            { id: 6041, name: '新增电价', nameEn: 'Add Price', type: 'button', path: null, icon: null, parentId: 604, sort: 1, status: 'active' },
+            { id: 6042, name: '编辑电价', nameEn: 'Edit Price', type: 'button', path: null, icon: null, parentId: 604, sort: 2, status: 'active' },
+            { id: 6043, name: '删除电价', nameEn: 'Delete Price', type: 'button', path: null, icon: null, parentId: 604, sort: 3, status: 'active' },
+            { id: 6044, name: '购电模版', nameEn: 'Purchase Template', type: 'tab', path: null, icon: null, parentId: 604, sort: 1, status: 'active' },
+            { id: 6045, name: '新疆规则', nameEn: 'Xinjiang Rules', type: 'button', path: null, icon: null, parentId: 6044, sort: 1, status: 'active' },
+            { id: 6046, name: '查看', nameEn: 'View', type: 'button', path: null, icon: null, parentId: 6044, sort: 2, status: 'active' },
+            { id: 6047, name: '编辑', nameEn: 'Edit', type: 'button', path: null, icon: null, parentId: 6044, sort: 3, status: 'active' },
+            { id: 6048, name: '删除', nameEn: 'Delete', type: 'button', path: null, icon: null, parentId: 6044, sort: 4, status: 'active' },
+            { id: 6049, name: '上网模版', nameEn: 'Grid Template', type: 'tab', path: null, icon: null, parentId: 604, sort: 2, status: 'active' },
+            { id: 6050, name: '新疆规则', nameEn: 'Xinjiang Rules', type: 'button', path: null, icon: null, parentId: 6049, sort: 1, status: 'active' },
+            { id: 6051, name: '查看', nameEn: 'View', type: 'button', path: null, icon: null, parentId: 6049, sort: 2, status: 'active' },
+            { id: 6052, name: '编辑', nameEn: 'Edit', type: 'button', path: null, icon: null, parentId: 6049, sort: 3, status: 'active' },
+            { id: 6053, name: '删除', nameEn: 'Delete', type: 'button', path: null, icon: null, parentId: 6049, sort: 4, status: 'active' },
+            { id: 6054, name: '电站配置', nameEn: 'Station Config', type: 'tab', path: null, icon: null, parentId: 604, sort: 3, status: 'active' },
+            { id: 6055, name: '配置', nameEn: 'Config', type: 'button', path: null, icon: null, parentId: 6054, sort: 1, status: 'active' },
+            // 个性化设置
+            { id: 605, name: '个性化设置', nameEn: 'Personalization Settings', type: 'menu', path: 'personalization.html', icon: 'bi-palette-fill', parentId: 600, sort: 5, status: 'active' },
         ],
 
         getList: async function() {
