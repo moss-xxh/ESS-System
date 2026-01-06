@@ -4285,7 +4285,8 @@ const Router = {
                                    name="password"
                                    value="EssCloud123!"
                                    required
-                                   style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
+                                   readonly
+                                   style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s; background-color: #F5F5F7; cursor: default;">
                         </div>
                     </div>
                 </div>
