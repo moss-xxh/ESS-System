@@ -3948,14 +3948,14 @@ const Router = {
                     <div class="col-6">
                         <div class="form-group">
                             <label class="form-label" style="font-weight: 500; margin-bottom: 8px; color: var(--text-primary); font-size: 14px;">
-                                ${i18n.t('customer.password')} <span style="color: #FF3B30;">*</span>
+                                ${i18n.t('customer.password')}
                             </label>
                             <input type="password"
                                    class="form-control"
                                    name="password"
                                    value="${customer.password}"
-                                   required
-                                   style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
+                                   disabled
+                                   style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s; background-color: #F5F5F7; cursor: not-allowed;">
                         </div>
                     </div>
                 </div>
@@ -4283,7 +4283,7 @@ const Router = {
                             <input type="text"
                                    class="form-control"
                                    name="password"
-                                   value="admin"
+                                   value="EssCloud123!"
                                    required
                                    style="border-radius: 10px; border: 1.5px solid rgba(0, 0, 0, 0.1); padding: 10px 14px; font-size: 15px; transition: all 0.2s;">
                         </div>
